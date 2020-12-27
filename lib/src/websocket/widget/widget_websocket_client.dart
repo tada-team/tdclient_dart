@@ -1,42 +1,54 @@
 import 'dart:convert';
-import 'dart:io';
 
-import 'package:cookie_jar/cookie_jar.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tdclient_dart/src/websocket/widget/i_widget_websocket_client.dart';
 import 'package:web_socket_channel/io.dart';
 
-import 'package:tdclient_dart/src/widget/widget_http_client/event_names.dart';
-import 'package:tdclient_dart/src/widget/widget_websocket_client/websocket_constants.dart';
+import 'package:tdclient_dart/src/websocket/websocket_dtos/websocket_dtos.dart';
+import 'package:tdclient_dart/src/websocket/websocket_event_names.dart';
 import 'package:tdclient_dart/src/utils/logger.dart';
 import 'package:tdclient_dart/src/core/core_dtos/core_dtos.dart';
 import 'package:tdclient_dart/src/utils/extensions.dart';
-import 'package:tdclient_dart/src/widget/widget_websocket_client/websocket_dtos/websocket_dtos.dart';
 
-class WidgetWebsocketClient {
-  final _socketEndpoint = WebsocketConstants.widgetApiUri;
-  final Cookie _cookie;
+class WidgetWebSocketClient implements IWidgetWebSocketClient {
+  final String url;
+  final Iterable<String> protocols;
+  final Map<String, dynamic> headers;
+  final Duration pingInterval;
 
   IOWebSocketChannel _channel;
-  Stream<WebsocketEvent<Map<String, dynamic>>> eventStream;
+
+  @override
+  Stream<WebsocketEvent<Map<String, dynamic>>> rawStream;
+
+  @override
   Stream<WebsocketEvent<MessageListContainer>> messagesStream;
 
-  WidgetWebsocketClient(this._cookie);
+  WidgetWebSocketClient({
+    @required this.url,
+    this.protocols,
+    this.headers,
+    this.pingInterval,
+  });
 
+  @override
   void connect() {
     _channel = IOWebSocketChannel.connect(
-      _socketEndpoint,
-      headers: {
-        'cookie': SerializableCookie(_cookie).toJson(),
-      },
+      url,
+      protocols: protocols,
+      headers: headers,
+      pingInterval: pingInterval,
     );
-    eventStream = _getEventStream(_channel.stream);
-    messagesStream = _getMessagesStream(eventStream);
+    rawStream = _getRawStream(_channel.stream);
+    messagesStream = _getMessagesStream(rawStream);
   }
 
+  @override
   void close() {
     _channel.sink.close();
   }
 
-  Stream<WebsocketEvent<Map<String, dynamic>>> _getEventStream(
+  Stream<WebsocketEvent<Map<String, dynamic>>> _getRawStream(
     Stream<dynamic> channelStream,
   ) async* {
     await for (final stringEvent in channelStream) {
@@ -46,7 +58,7 @@ class WidgetWebsocketClient {
 
       if (!serializedEvent.confirmId.isEmptyOrNull) {
         final confirmEvent = WebsocketEvent(
-          event: EventNames.clientConfirm,
+          event: WebSocketEventNames.clientConfirm,
           params: ConfirmContainer(
             confirmId: serializedEvent.confirmId,
           ),
@@ -65,7 +77,7 @@ class WidgetWebsocketClient {
     Stream<WebsocketEvent<Map<String, dynamic>>> eventStream,
   ) async* {
     await for (final event in eventStream) {
-      if (event.event == EventNames.serverMessageUpdated) {
+      if (event.event == WebSocketEventNames.serverMessageUpdated) {
         yield WebsocketEvent(
           event: event.event,
           params: MessageListContainer.fromJson(event.params),
