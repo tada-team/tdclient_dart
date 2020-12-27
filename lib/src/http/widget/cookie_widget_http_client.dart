@@ -12,15 +12,15 @@ class CookieWidgetHttpClient extends WidgetHttpClient {
   const CookieWidgetHttpClient._(Dio dio) : super(dio);
 
   factory CookieWidgetHttpClient({
-    String setCookieString,
+    String cookieString,
   }) {
     final widgetApiUri = HttpConstants.widgetApiUri;
     final cookieJar = CookieJar();
 
-    if (!setCookieString.isEmptyOrNull) {
+    if (!cookieString.isEmptyOrNull) {
       cookieJar.saveFromResponse(
         widgetApiUri,
-        [Cookie.fromSetCookieValue(setCookieString)],
+        [Cookie.fromSetCookieValue(cookieString)],
       );
     }
 
