@@ -9,12 +9,15 @@ import 'package:tdclient_dart/src/http/http_constants.dart';
 import 'package:tdclient_dart/src/http/widget/widget_http_client.dart';
 
 class CookieWidgetHttpClient extends WidgetHttpClient {
-  const CookieWidgetHttpClient._(Dio dio) : super(dio);
+  static final _widgetApiUri = HttpConstants.widgetApiUri;
+  final CookieJar _cookieJar;
+
+  const CookieWidgetHttpClient._(Dio dio, this._cookieJar) : super(dio);
 
   factory CookieWidgetHttpClient({
     String cookieString,
   }) {
-    final widgetApiUri = HttpConstants.widgetApiUri;
+    final widgetApiUri = _widgetApiUri;
     final cookieJar = CookieJar();
 
     if (!cookieString.isEmptyOrNull) {
@@ -32,6 +35,8 @@ class CookieWidgetHttpClient extends WidgetHttpClient {
         CookieManager(cookieJar),
       );
 
-    return CookieWidgetHttpClient._(dio);
+    return CookieWidgetHttpClient._(dio, cookieJar);
   }
+
+  String get currentCookieString => _cookieJar.loadForRequest(_widgetApiUri).first.value;
 }
