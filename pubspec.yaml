@@ -24,7 +24,10 @@ dependencies:
   dart_extensions: ^1.0.2
 
 dev_dependencies:
+  # Code style.
   pedantic: ^1.9.0
+
+  # Code generation.
   build_runner: any
   json_serializable: ^3.5.1
   freezed: ^0.12.6
