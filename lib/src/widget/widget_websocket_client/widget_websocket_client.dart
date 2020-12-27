@@ -4,14 +4,15 @@ import 'dart:io';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:web_socket_channel/io.dart';
 
+import 'package:tdclient_dart/src/widget/widget_http_client/event_names.dart';
+import 'package:tdclient_dart/src/widget/widget_websocket_client/websocket_constants.dart';
 import 'package:tdclient_dart/src/utils/logger.dart';
 import 'package:tdclient_dart/src/core/core_dtos/core_dtos.dart';
-import 'package:tdclient_dart/src/widget/constants.dart';
 import 'package:tdclient_dart/src/utils/extensions.dart';
 import 'package:tdclient_dart/src/widget/widget_websocket_client/websocket_dtos/websocket_dtos.dart';
 
 class WidgetWebsocketClient {
-  final _socketEndpoint = Constants.websocketApiUri;
+  final _socketEndpoint = WebsocketConstants.widgetApiUri;
   final Cookie _cookie;
 
   IOWebSocketChannel _channel;
