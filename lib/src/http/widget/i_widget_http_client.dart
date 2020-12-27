@@ -9,7 +9,7 @@ abstract class IWidgetHttpClient {
   /// For example it can be used to add interceptors.
   Dio get dio;
 
-  Future<Response<UserInfo>> login();
+  Future<Response<void>> login();
 
   Future<Response<void>> logout();
 

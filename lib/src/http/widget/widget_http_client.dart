@@ -50,12 +50,12 @@ class WidgetHttpClient implements IWidgetHttpClient {
   }
 
   @override
-  Future<Response<UserInfo>> login() {
+  Future<Response<void>> login() {
     return _get(
       uri: Uri(
         path: 'login',
       ),
-      resultFromJson: (json) => UserInfo.fromJson(json),
+      resultFromJson: (json) => null,
     );
   }
 
