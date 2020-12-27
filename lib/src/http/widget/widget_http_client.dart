@@ -2,15 +2,16 @@ import 'package:dio/dio.dart' hide Response;
 import 'package:meta/meta.dart';
 
 import 'package:tdclient_dart/src/core/core_dtos/core_dtos.dart';
-import 'package:tdclient_dart/src/widget/widget_http_client/http_dtos/http_dtos.dart';
+import 'package:tdclient_dart/src/http/http_dtos/http_dtos.dart';
+import 'package:tdclient_dart/src/http/widget/i_widget_http_client.dart';
 
-// ignore: avoid_annotating_with_dynamic
 typedef ResultFromJson<T> = T Function(dynamic data);
 
-class WidgetHttpClient {
-  final Dio _dio;
+class WidgetHttpClient implements IWidgetHttpClient {
+  @override
+  final Dio dio;
 
-  WidgetHttpClient(this._dio);
+  const WidgetHttpClient(this.dio);
 
   Future<Response<T>> _post<T>({
     @required Uri uri,
@@ -21,7 +22,7 @@ class WidgetHttpClient {
     ProgressCallback onSendProgress,
     ProgressCallback onReceiveProgress,
   }) async {
-    final dioResponse = await _dio.postUri(
+    final dioResponse = await dio.postUri(
       uri,
       data: data,
       options: options,
@@ -39,7 +40,7 @@ class WidgetHttpClient {
     CancelToken cancelToken,
     ProgressCallback onReceiveProgress,
   }) async {
-    final dioResponse = await _dio.getUri(
+    final dioResponse = await dio.getUri(
       uri,
       options: options,
       cancelToken: cancelToken,
@@ -48,6 +49,7 @@ class WidgetHttpClient {
     return Response.fromJson(dioResponse.data, resultFromJson);
   }
 
+  @override
   Future<Response<UserInfo>> login() {
     return _get(
       uri: Uri(
@@ -57,6 +59,7 @@ class WidgetHttpClient {
     );
   }
 
+  @override
   Future<Response<void>> logout() {
     return _get(
       uri: Uri(
@@ -66,6 +69,7 @@ class WidgetHttpClient {
     );
   }
 
+  @override
   Future<Response<MessageListContainer>> getMessages({
     @required String teamUid,
   }) {
@@ -77,6 +81,7 @@ class WidgetHttpClient {
     );
   }
 
+  @override
   Future<Response<Message>> sendMessage({
     @required teamUid,
     @required OutgoingMessage message,
@@ -90,6 +95,7 @@ class WidgetHttpClient {
     );
   }
 
+  @override
   Future<Response<UserInfo>> getUserInfo() {
     return _get(
       uri: Uri(

@@ -1,1 +1,1 @@
-export 'package:dart_extensions/dart_extensions.dart';
+export 'package:dart_extensions/dart_extensions.dart' hide Message;

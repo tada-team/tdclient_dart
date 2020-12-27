@@ -17,6 +17,7 @@ dependencies:
   dio: ^3.0.10
   tdproto_dart: ^1.0.1-dev
   cookie_jar: ^1.0.1
+  dio_cookie_manager: ^1.0.0
 
   # Infrastructure.
   logger: ^0.9.4
