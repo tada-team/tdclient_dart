@@ -1,6 +1,5 @@
 import 'package:meta/meta.dart';
 
-import 'package:tdclient_dart/src/utils/extensions.dart';
 import 'package:tdclient_dart/src/websocket/websocket_constants.dart';
 import 'package:tdclient_dart/src/websocket/widget/widget_websocket_client.dart';
 
@@ -15,9 +14,9 @@ class CookieWidgetWebSocketClient extends WidgetWebSocketClient {
 
   factory CookieWidgetWebSocketClient({
     @required String teamUid,
-    String cookieString,
+    @required String cookieString,
   }) {
-    final headers = cookieString.isEmptyOrNull ? null : {'cookie': cookieString};
+    final headers = {'cookie': cookieString};
     final uri = WebSocketConstants.serverUri.replace(
       pathSegments: ['messaging', teamUid, 'widget'],
     );
