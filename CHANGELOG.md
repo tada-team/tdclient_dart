@@ -1,3 +1,11 @@
 ## 1.0.0-dev
 
-- Initial version.
+### HTTP
+
+- `CookieWidgetHttpClient`
+- `TokenWidgetHttpClient`
+
+### WebSocket
+
+- `CookieWidgetWebSocketClient`
+- `TokenWidgetWebSocketClient`
