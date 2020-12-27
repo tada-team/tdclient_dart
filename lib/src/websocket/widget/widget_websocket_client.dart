@@ -11,7 +11,7 @@ import 'package:tdclient_dart/src/core/core_dtos/core_dtos.dart';
 import 'package:tdclient_dart/src/utils/extensions.dart';
 
 class WidgetWebSocketClient implements IWidgetWebSocketClient {
-  final String url;
+  final Uri uri;
   final Iterable<String> protocols;
   final Map<String, dynamic> headers;
   final Duration pingInterval;
@@ -25,7 +25,7 @@ class WidgetWebSocketClient implements IWidgetWebSocketClient {
   Stream<WebsocketEvent<MessageListContainer>> messagesStream;
 
   WidgetWebSocketClient({
-    @required this.url,
+    @required this.uri,
     this.protocols,
     this.headers,
     this.pingInterval,
@@ -34,7 +34,7 @@ class WidgetWebSocketClient implements IWidgetWebSocketClient {
   @override
   void connect() {
     _channel = IOWebSocketChannel.connect(
-      url,
+      uri.toString(),
       protocols: protocols,
       headers: headers,
       pingInterval: pingInterval,
