@@ -1,12 +1,11 @@
 import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tdclient_dart/src/websocket/widget/i_widget_websocket_client.dart';
 import 'package:web_socket_channel/io.dart';
 
+import 'package:tdclient_dart/src/websocket/widget/i_widget_websocket_client.dart';
 import 'package:tdclient_dart/src/websocket/websocket_dtos/websocket_dtos.dart';
 import 'package:tdclient_dart/src/websocket/websocket_event_names.dart';
-import 'package:tdclient_dart/src/utils/logger.dart';
 import 'package:tdclient_dart/src/core/core_dtos/core_dtos.dart';
 import 'package:tdclient_dart/src/utils/extensions.dart';
 
@@ -44,16 +43,13 @@ class WidgetWebSocketClient implements IWidgetWebSocketClient {
   }
 
   @override
-  void close() {
-    _channel.sink.close();
-  }
+  Future close() => _channel.sink.close();
 
   Stream<WebsocketEvent<Map<String, dynamic>>> _getRawStream(
     Stream<dynamic> channelStream,
   ) async* {
     await for (final stringEvent in channelStream) {
       final jsonEvent = jsonDecode(stringEvent);
-      logger.wtf(jsonEvent);
       final serializedEvent = WebsocketEvent<Map<String, dynamic>>.fromJson(jsonEvent, (json) => json);
 
       if (!serializedEvent.confirmId.isEmptyOrNull) {
