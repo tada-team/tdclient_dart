@@ -1,0 +1,13 @@
+name: tdclient_dart
+description: WebSocket and HTTP client for Tada API to write network code faster.
+homepage: https://github.com/tada-team/tdclient_dart
+repository: https://github.com/tada-team/tdclient_dart
+issue_tracker: https://github.com/tada-team/tdclient_dart/issues
+
+version: 1.0.0-dev
+
+environment:
+  sdk: '>=2.8.1 <3.0.0'
+
+dev_dependencies:
+  pedantic: ^1.9.0
