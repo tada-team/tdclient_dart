@@ -12,8 +12,6 @@ _$_ConfirmContainer _$_$_ConfirmContainerFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$_$_ConfirmContainerToJson(
-        _$_ConfirmContainer instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$_$_ConfirmContainerToJson(_$_ConfirmContainer instance) => <String, dynamic>{
       'confirm_id': instance.confirmId,
     };

@@ -17,8 +17,7 @@ class _$MessageListContainerTearOff {
   const _$MessageListContainerTearOff();
 
 // ignore: unused_element
-  _MessageListContainer call(
-      {@JsonKey(name: 'messages') List<Message> messages}) {
+  _MessageListContainer call({@JsonKey(name: 'messages') List<Message> messages}) {
     return _MessageListContainer(
       messages: messages,
     );
@@ -45,15 +44,13 @@ mixin _$MessageListContainer {
 
 /// @nodoc
 abstract class $MessageListContainerCopyWith<$Res> {
-  factory $MessageListContainerCopyWith(MessageListContainer value,
-          $Res Function(MessageListContainer) then) =
+  factory $MessageListContainerCopyWith(MessageListContainer value, $Res Function(MessageListContainer) then) =
       _$MessageListContainerCopyWithImpl<$Res>;
   $Res call({@JsonKey(name: 'messages') List<Message> messages});
 }
 
 /// @nodoc
-class _$MessageListContainerCopyWithImpl<$Res>
-    implements $MessageListContainerCopyWith<$Res> {
+class _$MessageListContainerCopyWithImpl<$Res> implements $MessageListContainerCopyWith<$Res> {
   _$MessageListContainerCopyWithImpl(this._value, this._then);
 
   final MessageListContainer _value;
@@ -65,28 +62,23 @@ class _$MessageListContainerCopyWithImpl<$Res>
     Object messages = freezed,
   }) {
     return _then(_value.copyWith(
-      messages:
-          messages == freezed ? _value.messages : messages as List<Message>,
+      messages: messages == freezed ? _value.messages : messages as List<Message>,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$MessageListContainerCopyWith<$Res>
-    implements $MessageListContainerCopyWith<$Res> {
-  factory _$MessageListContainerCopyWith(_MessageListContainer value,
-          $Res Function(_MessageListContainer) then) =
+abstract class _$MessageListContainerCopyWith<$Res> implements $MessageListContainerCopyWith<$Res> {
+  factory _$MessageListContainerCopyWith(_MessageListContainer value, $Res Function(_MessageListContainer) then) =
       __$MessageListContainerCopyWithImpl<$Res>;
   @override
   $Res call({@JsonKey(name: 'messages') List<Message> messages});
 }
 
 /// @nodoc
-class __$MessageListContainerCopyWithImpl<$Res>
-    extends _$MessageListContainerCopyWithImpl<$Res>
+class __$MessageListContainerCopyWithImpl<$Res> extends _$MessageListContainerCopyWithImpl<$Res>
     implements _$MessageListContainerCopyWith<$Res> {
-  __$MessageListContainerCopyWithImpl(
-      _MessageListContainer _value, $Res Function(_MessageListContainer) _then)
+  __$MessageListContainerCopyWithImpl(_MessageListContainer _value, $Res Function(_MessageListContainer) _then)
       : super(_value, (v) => _then(v as _MessageListContainer));
 
   @override
@@ -97,8 +89,7 @@ class __$MessageListContainerCopyWithImpl<$Res>
     Object messages = freezed,
   }) {
     return _then(_MessageListContainer(
-      messages:
-          messages == freezed ? _value.messages : messages as List<Message>,
+      messages: messages == freezed ? _value.messages : messages as List<Message>,
     ));
   }
 }
@@ -109,8 +100,7 @@ class __$MessageListContainerCopyWithImpl<$Res>
 class _$_MessageListContainer implements _MessageListContainer {
   const _$_MessageListContainer({@JsonKey(name: 'messages') this.messages});
 
-  factory _$_MessageListContainer.fromJson(Map<String, dynamic> json) =>
-      _$_$_MessageListContainerFromJson(json);
+  factory _$_MessageListContainer.fromJson(Map<String, dynamic> json) => _$_$_MessageListContainerFromJson(json);
 
   @override
   @JsonKey(name: 'messages')
@@ -125,19 +115,15 @@ class _$_MessageListContainer implements _MessageListContainer {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _MessageListContainer &&
-            (identical(other.messages, messages) ||
-                const DeepCollectionEquality()
-                    .equals(other.messages, messages)));
+            (identical(other.messages, messages) || const DeepCollectionEquality().equals(other.messages, messages)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(messages);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(messages);
 
   @override
   _$MessageListContainerCopyWith<_MessageListContainer> get copyWith =>
-      __$MessageListContainerCopyWithImpl<_MessageListContainer>(
-          this, _$identity);
+      __$MessageListContainerCopyWithImpl<_MessageListContainer>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -146,12 +132,9 @@ class _$_MessageListContainer implements _MessageListContainer {
 }
 
 abstract class _MessageListContainer implements MessageListContainer {
-  const factory _MessageListContainer(
-          {@JsonKey(name: 'messages') List<Message> messages}) =
-      _$_MessageListContainer;
+  const factory _MessageListContainer({@JsonKey(name: 'messages') List<Message> messages}) = _$_MessageListContainer;
 
-  factory _MessageListContainer.fromJson(Map<String, dynamic> json) =
-      _$_MessageListContainer.fromJson;
+  factory _MessageListContainer.fromJson(Map<String, dynamic> json) = _$_MessageListContainer.fromJson;
 
   @override
   @JsonKey(name: 'messages')

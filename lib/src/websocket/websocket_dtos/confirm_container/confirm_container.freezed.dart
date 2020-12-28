@@ -44,15 +44,13 @@ mixin _$ConfirmContainer {
 
 /// @nodoc
 abstract class $ConfirmContainerCopyWith<$Res> {
-  factory $ConfirmContainerCopyWith(
-          ConfirmContainer value, $Res Function(ConfirmContainer) then) =
+  factory $ConfirmContainerCopyWith(ConfirmContainer value, $Res Function(ConfirmContainer) then) =
       _$ConfirmContainerCopyWithImpl<$Res>;
   $Res call({@JsonKey(name: 'confirm_id') String confirmId});
 }
 
 /// @nodoc
-class _$ConfirmContainerCopyWithImpl<$Res>
-    implements $ConfirmContainerCopyWith<$Res> {
+class _$ConfirmContainerCopyWithImpl<$Res> implements $ConfirmContainerCopyWith<$Res> {
   _$ConfirmContainerCopyWithImpl(this._value, this._then);
 
   final ConfirmContainer _value;
@@ -70,21 +68,17 @@ class _$ConfirmContainerCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ConfirmContainerCopyWith<$Res>
-    implements $ConfirmContainerCopyWith<$Res> {
-  factory _$ConfirmContainerCopyWith(
-          _ConfirmContainer value, $Res Function(_ConfirmContainer) then) =
+abstract class _$ConfirmContainerCopyWith<$Res> implements $ConfirmContainerCopyWith<$Res> {
+  factory _$ConfirmContainerCopyWith(_ConfirmContainer value, $Res Function(_ConfirmContainer) then) =
       __$ConfirmContainerCopyWithImpl<$Res>;
   @override
   $Res call({@JsonKey(name: 'confirm_id') String confirmId});
 }
 
 /// @nodoc
-class __$ConfirmContainerCopyWithImpl<$Res>
-    extends _$ConfirmContainerCopyWithImpl<$Res>
+class __$ConfirmContainerCopyWithImpl<$Res> extends _$ConfirmContainerCopyWithImpl<$Res>
     implements _$ConfirmContainerCopyWith<$Res> {
-  __$ConfirmContainerCopyWithImpl(
-      _ConfirmContainer _value, $Res Function(_ConfirmContainer) _then)
+  __$ConfirmContainerCopyWithImpl(_ConfirmContainer _value, $Res Function(_ConfirmContainer) _then)
       : super(_value, (v) => _then(v as _ConfirmContainer));
 
   @override
@@ -106,8 +100,7 @@ class __$ConfirmContainerCopyWithImpl<$Res>
 class _$_ConfirmContainer implements _ConfirmContainer {
   const _$_ConfirmContainer({@JsonKey(name: 'confirm_id') this.confirmId});
 
-  factory _$_ConfirmContainer.fromJson(Map<String, dynamic> json) =>
-      _$_$_ConfirmContainerFromJson(json);
+  factory _$_ConfirmContainer.fromJson(Map<String, dynamic> json) => _$_$_ConfirmContainerFromJson(json);
 
   @override
   @JsonKey(name: 'confirm_id')
@@ -123,13 +116,11 @@ class _$_ConfirmContainer implements _ConfirmContainer {
     return identical(this, other) ||
         (other is _ConfirmContainer &&
             (identical(other.confirmId, confirmId) ||
-                const DeepCollectionEquality()
-                    .equals(other.confirmId, confirmId)));
+                const DeepCollectionEquality().equals(other.confirmId, confirmId)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(confirmId);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(confirmId);
 
   @override
   _$ConfirmContainerCopyWith<_ConfirmContainer> get copyWith =>
@@ -142,11 +133,9 @@ class _$_ConfirmContainer implements _ConfirmContainer {
 }
 
 abstract class _ConfirmContainer implements ConfirmContainer {
-  const factory _ConfirmContainer(
-      {@JsonKey(name: 'confirm_id') String confirmId}) = _$_ConfirmContainer;
+  const factory _ConfirmContainer({@JsonKey(name: 'confirm_id') String confirmId}) = _$_ConfirmContainer;
 
-  factory _ConfirmContainer.fromJson(Map<String, dynamic> json) =
-      _$_ConfirmContainer.fromJson;
+  factory _ConfirmContainer.fromJson(Map<String, dynamic> json) = _$_ConfirmContainer.fromJson;
 
   @override
   @JsonKey(name: 'confirm_id')

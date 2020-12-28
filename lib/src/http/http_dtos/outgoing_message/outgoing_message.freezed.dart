@@ -44,15 +44,13 @@ mixin _$OutgoingMessage {
 
 /// @nodoc
 abstract class $OutgoingMessageCopyWith<$Res> {
-  factory $OutgoingMessageCopyWith(
-          OutgoingMessage value, $Res Function(OutgoingMessage) then) =
+  factory $OutgoingMessageCopyWith(OutgoingMessage value, $Res Function(OutgoingMessage) then) =
       _$OutgoingMessageCopyWithImpl<$Res>;
   $Res call({@JsonKey(name: 'text') String text});
 }
 
 /// @nodoc
-class _$OutgoingMessageCopyWithImpl<$Res>
-    implements $OutgoingMessageCopyWith<$Res> {
+class _$OutgoingMessageCopyWithImpl<$Res> implements $OutgoingMessageCopyWith<$Res> {
   _$OutgoingMessageCopyWithImpl(this._value, this._then);
 
   final OutgoingMessage _value;
@@ -70,21 +68,17 @@ class _$OutgoingMessageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$OutgoingMessageCopyWith<$Res>
-    implements $OutgoingMessageCopyWith<$Res> {
-  factory _$OutgoingMessageCopyWith(
-          _OutgoingMessage value, $Res Function(_OutgoingMessage) then) =
+abstract class _$OutgoingMessageCopyWith<$Res> implements $OutgoingMessageCopyWith<$Res> {
+  factory _$OutgoingMessageCopyWith(_OutgoingMessage value, $Res Function(_OutgoingMessage) then) =
       __$OutgoingMessageCopyWithImpl<$Res>;
   @override
   $Res call({@JsonKey(name: 'text') String text});
 }
 
 /// @nodoc
-class __$OutgoingMessageCopyWithImpl<$Res>
-    extends _$OutgoingMessageCopyWithImpl<$Res>
+class __$OutgoingMessageCopyWithImpl<$Res> extends _$OutgoingMessageCopyWithImpl<$Res>
     implements _$OutgoingMessageCopyWith<$Res> {
-  __$OutgoingMessageCopyWithImpl(
-      _OutgoingMessage _value, $Res Function(_OutgoingMessage) _then)
+  __$OutgoingMessageCopyWithImpl(_OutgoingMessage _value, $Res Function(_OutgoingMessage) _then)
       : super(_value, (v) => _then(v as _OutgoingMessage));
 
   @override
@@ -106,8 +100,7 @@ class __$OutgoingMessageCopyWithImpl<$Res>
 class _$_OutgoingMessage implements _OutgoingMessage {
   const _$_OutgoingMessage({@JsonKey(name: 'text') this.text});
 
-  factory _$_OutgoingMessage.fromJson(Map<String, dynamic> json) =>
-      _$_$_OutgoingMessageFromJson(json);
+  factory _$_OutgoingMessage.fromJson(Map<String, dynamic> json) => _$_$_OutgoingMessageFromJson(json);
 
   @override
   @JsonKey(name: 'text')
@@ -122,13 +115,11 @@ class _$_OutgoingMessage implements _OutgoingMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _OutgoingMessage &&
-            (identical(other.text, text) ||
-                const DeepCollectionEquality().equals(other.text, text)));
+            (identical(other.text, text) || const DeepCollectionEquality().equals(other.text, text)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(text);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(text);
 
   @override
   _$OutgoingMessageCopyWith<_OutgoingMessage> get copyWith =>
@@ -141,11 +132,9 @@ class _$_OutgoingMessage implements _OutgoingMessage {
 }
 
 abstract class _OutgoingMessage implements OutgoingMessage {
-  const factory _OutgoingMessage({@JsonKey(name: 'text') String text}) =
-      _$_OutgoingMessage;
+  const factory _OutgoingMessage({@JsonKey(name: 'text') String text}) = _$_OutgoingMessage;
 
-  factory _OutgoingMessage.fromJson(Map<String, dynamic> json) =
-      _$_OutgoingMessage.fromJson;
+  factory _OutgoingMessage.fromJson(Map<String, dynamic> json) = _$_OutgoingMessage.fromJson;
 
   @override
   @JsonKey(name: 'text')

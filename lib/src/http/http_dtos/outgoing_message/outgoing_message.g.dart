@@ -12,7 +12,6 @@ _$_OutgoingMessage _$_$_OutgoingMessageFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$_$_OutgoingMessageToJson(_$_OutgoingMessage instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$_$_OutgoingMessageToJson(_$_OutgoingMessage instance) => <String, dynamic>{
       'text': instance.text,
     };
