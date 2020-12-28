@@ -7,7 +7,7 @@ import 'package:tdclient_dart/src/websocket/widget/i_widget_websocket_client.dar
 import 'package:tdclient_dart/src/websocket/websocket_dtos/websocket_dtos.dart';
 import 'package:tdclient_dart/src/websocket/websocket_event_names.dart';
 import 'package:tdclient_dart/src/core/core_dtos/core_dtos.dart';
-import 'package:tdclient_dart/src/utils/extensions.dart';
+import 'package:tdclient_dart/src/utils/utils.dart';
 
 class WidgetWebSocketClient implements IWidgetWebSocketClient {
   final Uri uri;
