@@ -38,5 +38,8 @@ class CookieWidgetHttpClient extends WidgetHttpClient {
     return CookieWidgetHttpClient._(dio, cookieJar);
   }
 
-  String get currentCookieString => _cookieJar.loadForRequest(_widgetApiUri).first.value;
+  String get currentCookieString {
+    final cookie = _cookieJar.loadForRequest(_widgetApiUri);
+    return SerializableCookie(cookie.first).toJson();
+  }
 }
