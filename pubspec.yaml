@@ -18,10 +18,12 @@ dependencies:
   tdproto_dart: ^1.0.1-dev
   cookie_jar: ^1.0.1
   dio_cookie_manager: ^1.0.0
+  web_socket_channel: ^1.1.0
 
   # Infrastructure.
   logger: ^0.9.4
   dart_extensions: ^1.0.2
+  meta: ^1.2.4
 
 dev_dependencies:
   # Code style.
