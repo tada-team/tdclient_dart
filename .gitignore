@@ -13,3 +13,9 @@ build/
 
 # Directory created by dartdoc
 doc/api/
+
+# ASDF related
+.tool-versions
+
+# Ignoring example for now
+example

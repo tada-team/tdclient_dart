@@ -1,6 +1,5 @@
 import 'package:meta/meta.dart';
 
-import 'package:tdclient_dart/src/websocket/websocket_constants.dart';
 import 'package:tdclient_dart/src/websocket/widget/widget_websocket_client.dart';
 
 class CookieWidgetWebSocketClient extends WidgetWebSocketClient {
@@ -13,13 +12,19 @@ class CookieWidgetWebSocketClient extends WidgetWebSocketClient {
         );
 
   factory CookieWidgetWebSocketClient({
+    @required String serverDomain,
     @required String teamUid,
     @required String cookieString,
   }) {
-    final headers = {'cookie': cookieString};
-    final uri = WebSocketConstants.serverUri.replace(
-      pathSegments: ['messaging', teamUid, 'widget'],
+    return CookieWidgetWebSocketClient._(
+      headers: {
+        'cookie': cookieString,
+      },
+      uri: Uri(
+        scheme: 'wss',
+        host: serverDomain,
+        pathSegments: ['messaging', teamUid, 'widget'],
+      ),
     );
-    return CookieWidgetWebSocketClient._(headers: headers, uri: uri);
   }
 }

@@ -9,13 +9,13 @@ class WidgetHttpClient implements IWidgetHttpClient {
   @override
   final Dio dio;
 
-  final DioWrapper _dioWrapper;
+  final DioWrapper dioWrapper;
 
-  WidgetHttpClient(this.dio) : _dioWrapper = DioWrapper(dio: dio);
+  WidgetHttpClient(this.dio) : dioWrapper = DioWrapper(dio: dio);
 
   @override
   Future<Response<void>> login() {
-    return _dioWrapper.get(
+    return dioWrapper.get(
       uri: Uri(
         path: 'login',
       ),
@@ -25,7 +25,7 @@ class WidgetHttpClient implements IWidgetHttpClient {
 
   @override
   Future<Response<void>> logout() {
-    return _dioWrapper.get(
+    return dioWrapper.get(
       uri: Uri(
         path: 'logout',
       ),
@@ -37,7 +37,7 @@ class WidgetHttpClient implements IWidgetHttpClient {
   Future<Response<MessageListContainer>> getMessages({
     @required String teamUid,
   }) {
-    return _dioWrapper.get(
+    return dioWrapper.get(
       uri: Uri(
         pathSegments: [teamUid, 'messages'],
       ),
@@ -50,7 +50,7 @@ class WidgetHttpClient implements IWidgetHttpClient {
     @required teamUid,
     @required OutgoingMessage message,
   }) {
-    return _dioWrapper.post(
+    return dioWrapper.post(
       uri: Uri(
         pathSegments: [teamUid, 'messages'],
       ),
@@ -61,7 +61,7 @@ class WidgetHttpClient implements IWidgetHttpClient {
 
   @override
   Future<Response<UserInfo>> getUserInfo() {
-    return _dioWrapper.get(
+    return dioWrapper.get(
       uri: Uri(
         path: 'userinfo',
       ),

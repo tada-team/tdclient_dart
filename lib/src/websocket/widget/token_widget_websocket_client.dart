@@ -1,6 +1,5 @@
 import 'package:meta/meta.dart';
 
-import 'package:tdclient_dart/src/websocket/websocket_constants.dart';
 import 'package:tdclient_dart/src/websocket/widget/widget_websocket_client.dart';
 
 class TokenWidgetWebSocketClient extends WidgetWebSocketClient {
@@ -13,13 +12,19 @@ class TokenWidgetWebSocketClient extends WidgetWebSocketClient {
         );
 
   factory TokenWidgetWebSocketClient({
+    @required String serverDomain,
     @required String teamUid,
     @required String tokenString,
   }) {
-    final headers = {'token': tokenString};
-    final uri = WebSocketConstants.serverUri.replace(
-      pathSegments: ['messaging', teamUid, 'widget'],
+    return TokenWidgetWebSocketClient._(
+      headers: {
+        'token': tokenString,
+      },
+      uri: Uri(
+        scheme: 'wss',
+        host: serverDomain,
+        pathSegments: ['messaging', teamUid, 'widget'],
+      ),
     );
-    return TokenWidgetWebSocketClient._(headers: headers, uri: uri);
   }
 }
