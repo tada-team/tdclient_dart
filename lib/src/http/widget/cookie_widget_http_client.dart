@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart' hide Response;
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:tdclient_dart/src/http/widget/widget_http_client.dart';
 import 'package:tdclient_dart/src/utils/utils.dart';
@@ -13,14 +12,14 @@ class CookieWidgetHttpClient extends WidgetHttpClient {
   final CookieJar cookieJar;
 
   CookieWidgetHttpClient._({
-    @required Dio dio,
-    @required this.widgetApiUri,
-    @required this.cookieJar,
+    required Dio dio,
+    required this.widgetApiUri,
+    required this.cookieJar,
   }) : super(dio);
 
   factory CookieWidgetHttpClient({
-    @required String serverDomain,
-    String cookieString,
+    required String serverDomain,
+    String? cookieString,
   }) {
     final widgetApiUri = Uri(
       scheme: 'https',
@@ -29,10 +28,12 @@ class CookieWidgetHttpClient extends WidgetHttpClient {
     );
     final cookieJar = CookieJar();
 
-    if (!cookieString.isEmptyOrNull) {
+    if (cookieString != null) {
       cookieJar.saveFromResponse(
         widgetApiUri,
-        [Cookie.fromSetCookieValue(cookieString)],
+        [
+          Cookie.fromSetCookieValue(cookieString),
+        ],
       );
     }
 
@@ -51,8 +52,8 @@ class CookieWidgetHttpClient extends WidgetHttpClient {
     );
   }
 
-  String get currentCookieString {
-    final cookie = cookieJar.loadForRequest(widgetApiUri);
+  Future<String> get currentCookieString async {
+    final cookie = await cookieJar.loadForRequest(widgetApiUri);
     return SerializableCookie(cookie.first).toJson();
   }
 }

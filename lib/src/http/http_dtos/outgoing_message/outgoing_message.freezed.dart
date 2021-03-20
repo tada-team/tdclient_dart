@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'outgoing_message.dart';
 
@@ -8,6 +8,10 @@ part of 'outgoing_message.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 OutgoingMessage _$OutgoingMessageFromJson(Map<String, dynamic> json) {
   return _OutgoingMessage.fromJson(json);
 }
@@ -16,41 +20,42 @@ OutgoingMessage _$OutgoingMessageFromJson(Map<String, dynamic> json) {
 class _$OutgoingMessageTearOff {
   const _$OutgoingMessageTearOff();
 
-// ignore: unused_element
-  _OutgoingMessage call({@JsonKey(name: 'text') String text}) {
+  _OutgoingMessage call({@JsonKey(name: 'text') String? text}) {
     return _OutgoingMessage(
       text: text,
     );
   }
 
-// ignore: unused_element
   OutgoingMessage fromJson(Map<String, Object> json) {
     return OutgoingMessage.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $OutgoingMessage = _$OutgoingMessageTearOff();
 
 /// @nodoc
 mixin _$OutgoingMessage {
   @JsonKey(name: 'text')
-  String get text;
+  String? get text => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $OutgoingMessageCopyWith<OutgoingMessage> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $OutgoingMessageCopyWith<OutgoingMessage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $OutgoingMessageCopyWith<$Res> {
-  factory $OutgoingMessageCopyWith(OutgoingMessage value, $Res Function(OutgoingMessage) then) =
+  factory $OutgoingMessageCopyWith(
+          OutgoingMessage value, $Res Function(OutgoingMessage) then) =
       _$OutgoingMessageCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'text') String text});
+  $Res call({@JsonKey(name: 'text') String? text});
 }
 
 /// @nodoc
-class _$OutgoingMessageCopyWithImpl<$Res> implements $OutgoingMessageCopyWith<$Res> {
+class _$OutgoingMessageCopyWithImpl<$Res>
+    implements $OutgoingMessageCopyWith<$Res> {
   _$OutgoingMessageCopyWithImpl(this._value, this._then);
 
   final OutgoingMessage _value;
@@ -59,26 +64,33 @@ class _$OutgoingMessageCopyWithImpl<$Res> implements $OutgoingMessageCopyWith<$R
 
   @override
   $Res call({
-    Object text = freezed,
+    Object? text = freezed,
   }) {
     return _then(_value.copyWith(
-      text: text == freezed ? _value.text : text as String,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$OutgoingMessageCopyWith<$Res> implements $OutgoingMessageCopyWith<$Res> {
-  factory _$OutgoingMessageCopyWith(_OutgoingMessage value, $Res Function(_OutgoingMessage) then) =
+abstract class _$OutgoingMessageCopyWith<$Res>
+    implements $OutgoingMessageCopyWith<$Res> {
+  factory _$OutgoingMessageCopyWith(
+          _OutgoingMessage value, $Res Function(_OutgoingMessage) then) =
       __$OutgoingMessageCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'text') String text});
+  $Res call({@JsonKey(name: 'text') String? text});
 }
 
 /// @nodoc
-class __$OutgoingMessageCopyWithImpl<$Res> extends _$OutgoingMessageCopyWithImpl<$Res>
+class __$OutgoingMessageCopyWithImpl<$Res>
+    extends _$OutgoingMessageCopyWithImpl<$Res>
     implements _$OutgoingMessageCopyWith<$Res> {
-  __$OutgoingMessageCopyWithImpl(_OutgoingMessage _value, $Res Function(_OutgoingMessage) _then)
+  __$OutgoingMessageCopyWithImpl(
+      _OutgoingMessage _value, $Res Function(_OutgoingMessage) _then)
       : super(_value, (v) => _then(v as _OutgoingMessage));
 
   @override
@@ -86,10 +98,13 @@ class __$OutgoingMessageCopyWithImpl<$Res> extends _$OutgoingMessageCopyWithImpl
 
   @override
   $Res call({
-    Object text = freezed,
+    Object? text = freezed,
   }) {
     return _then(_OutgoingMessage(
-      text: text == freezed ? _value.text : text as String,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -100,11 +115,12 @@ class __$OutgoingMessageCopyWithImpl<$Res> extends _$OutgoingMessageCopyWithImpl
 class _$_OutgoingMessage implements _OutgoingMessage {
   const _$_OutgoingMessage({@JsonKey(name: 'text') this.text});
 
-  factory _$_OutgoingMessage.fromJson(Map<String, dynamic> json) => _$_$_OutgoingMessageFromJson(json);
+  factory _$_OutgoingMessage.fromJson(Map<String, dynamic> json) =>
+      _$_$_OutgoingMessageFromJson(json);
 
   @override
   @JsonKey(name: 'text')
-  final String text;
+  final String? text;
 
   @override
   String toString() {
@@ -115,12 +131,15 @@ class _$_OutgoingMessage implements _OutgoingMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _OutgoingMessage &&
-            (identical(other.text, text) || const DeepCollectionEquality().equals(other.text, text)));
+            (identical(other.text, text) ||
+                const DeepCollectionEquality().equals(other.text, text)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(text);
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(text);
 
+  @JsonKey(ignore: true)
   @override
   _$OutgoingMessageCopyWith<_OutgoingMessage> get copyWith =>
       __$OutgoingMessageCopyWithImpl<_OutgoingMessage>(this, _$identity);
@@ -132,13 +151,17 @@ class _$_OutgoingMessage implements _OutgoingMessage {
 }
 
 abstract class _OutgoingMessage implements OutgoingMessage {
-  const factory _OutgoingMessage({@JsonKey(name: 'text') String text}) = _$_OutgoingMessage;
+  const factory _OutgoingMessage({@JsonKey(name: 'text') String? text}) =
+      _$_OutgoingMessage;
 
-  factory _OutgoingMessage.fromJson(Map<String, dynamic> json) = _$_OutgoingMessage.fromJson;
+  factory _OutgoingMessage.fromJson(Map<String, dynamic> json) =
+      _$_OutgoingMessage.fromJson;
 
   @override
   @JsonKey(name: 'text')
-  String get text;
+  String? get text => throw _privateConstructorUsedError;
   @override
-  _$OutgoingMessageCopyWith<_OutgoingMessage> get copyWith;
+  @JsonKey(ignore: true)
+  _$OutgoingMessageCopyWith<_OutgoingMessage> get copyWith =>
+      throw _privateConstructorUsedError;
 }

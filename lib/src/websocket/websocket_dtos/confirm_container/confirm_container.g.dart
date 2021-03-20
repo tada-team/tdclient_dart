@@ -7,11 +7,16 @@ part of 'confirm_container.dart';
 // **************************************************************************
 
 _$_ConfirmContainer _$_$_ConfirmContainerFromJson(Map<String, dynamic> json) {
-  return _$_ConfirmContainer(
-    confirmId: json['confirm_id'] as String,
-  );
+  return $checkedNew(r'_$_ConfirmContainer', json, () {
+    final val = _$_ConfirmContainer(
+      confirmId: $checkedConvert(json, 'confirm_id', (v) => v as String?),
+    );
+    return val;
+  }, fieldKeyMap: const {'confirmId': 'confirm_id'});
 }
 
-Map<String, dynamic> _$_$_ConfirmContainerToJson(_$_ConfirmContainer instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_ConfirmContainerToJson(
+        _$_ConfirmContainer instance) =>
+    <String, dynamic>{
       'confirm_id': instance.confirmId,
     };

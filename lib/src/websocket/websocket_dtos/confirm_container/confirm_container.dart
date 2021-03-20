@@ -6,7 +6,7 @@ part 'confirm_container.g.dart';
 @freezed
 abstract class ConfirmContainer with _$ConfirmContainer {
   const factory ConfirmContainer({
-    @JsonKey(name: 'confirm_id') String confirmId,
+    @JsonKey(name: 'confirm_id') String? confirmId,
   }) = _ConfirmContainer;
 
   factory ConfirmContainer.fromJson(Map<String, dynamic> json) => _$ConfirmContainerFromJson(json);

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'confirm_container.dart';
 
@@ -8,6 +8,10 @@ part of 'confirm_container.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 ConfirmContainer _$ConfirmContainerFromJson(Map<String, dynamic> json) {
   return _ConfirmContainer.fromJson(json);
 }
@@ -16,41 +20,42 @@ ConfirmContainer _$ConfirmContainerFromJson(Map<String, dynamic> json) {
 class _$ConfirmContainerTearOff {
   const _$ConfirmContainerTearOff();
 
-// ignore: unused_element
-  _ConfirmContainer call({@JsonKey(name: 'confirm_id') String confirmId}) {
+  _ConfirmContainer call({@JsonKey(name: 'confirm_id') String? confirmId}) {
     return _ConfirmContainer(
       confirmId: confirmId,
     );
   }
 
-// ignore: unused_element
   ConfirmContainer fromJson(Map<String, Object> json) {
     return ConfirmContainer.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ConfirmContainer = _$ConfirmContainerTearOff();
 
 /// @nodoc
 mixin _$ConfirmContainer {
   @JsonKey(name: 'confirm_id')
-  String get confirmId;
+  String? get confirmId => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $ConfirmContainerCopyWith<ConfirmContainer> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ConfirmContainerCopyWith<ConfirmContainer> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ConfirmContainerCopyWith<$Res> {
-  factory $ConfirmContainerCopyWith(ConfirmContainer value, $Res Function(ConfirmContainer) then) =
+  factory $ConfirmContainerCopyWith(
+          ConfirmContainer value, $Res Function(ConfirmContainer) then) =
       _$ConfirmContainerCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'confirm_id') String confirmId});
+  $Res call({@JsonKey(name: 'confirm_id') String? confirmId});
 }
 
 /// @nodoc
-class _$ConfirmContainerCopyWithImpl<$Res> implements $ConfirmContainerCopyWith<$Res> {
+class _$ConfirmContainerCopyWithImpl<$Res>
+    implements $ConfirmContainerCopyWith<$Res> {
   _$ConfirmContainerCopyWithImpl(this._value, this._then);
 
   final ConfirmContainer _value;
@@ -59,26 +64,33 @@ class _$ConfirmContainerCopyWithImpl<$Res> implements $ConfirmContainerCopyWith<
 
   @override
   $Res call({
-    Object confirmId = freezed,
+    Object? confirmId = freezed,
   }) {
     return _then(_value.copyWith(
-      confirmId: confirmId == freezed ? _value.confirmId : confirmId as String,
+      confirmId: confirmId == freezed
+          ? _value.confirmId
+          : confirmId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$ConfirmContainerCopyWith<$Res> implements $ConfirmContainerCopyWith<$Res> {
-  factory _$ConfirmContainerCopyWith(_ConfirmContainer value, $Res Function(_ConfirmContainer) then) =
+abstract class _$ConfirmContainerCopyWith<$Res>
+    implements $ConfirmContainerCopyWith<$Res> {
+  factory _$ConfirmContainerCopyWith(
+          _ConfirmContainer value, $Res Function(_ConfirmContainer) then) =
       __$ConfirmContainerCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'confirm_id') String confirmId});
+  $Res call({@JsonKey(name: 'confirm_id') String? confirmId});
 }
 
 /// @nodoc
-class __$ConfirmContainerCopyWithImpl<$Res> extends _$ConfirmContainerCopyWithImpl<$Res>
+class __$ConfirmContainerCopyWithImpl<$Res>
+    extends _$ConfirmContainerCopyWithImpl<$Res>
     implements _$ConfirmContainerCopyWith<$Res> {
-  __$ConfirmContainerCopyWithImpl(_ConfirmContainer _value, $Res Function(_ConfirmContainer) _then)
+  __$ConfirmContainerCopyWithImpl(
+      _ConfirmContainer _value, $Res Function(_ConfirmContainer) _then)
       : super(_value, (v) => _then(v as _ConfirmContainer));
 
   @override
@@ -86,10 +98,13 @@ class __$ConfirmContainerCopyWithImpl<$Res> extends _$ConfirmContainerCopyWithIm
 
   @override
   $Res call({
-    Object confirmId = freezed,
+    Object? confirmId = freezed,
   }) {
     return _then(_ConfirmContainer(
-      confirmId: confirmId == freezed ? _value.confirmId : confirmId as String,
+      confirmId: confirmId == freezed
+          ? _value.confirmId
+          : confirmId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -100,11 +115,12 @@ class __$ConfirmContainerCopyWithImpl<$Res> extends _$ConfirmContainerCopyWithIm
 class _$_ConfirmContainer implements _ConfirmContainer {
   const _$_ConfirmContainer({@JsonKey(name: 'confirm_id') this.confirmId});
 
-  factory _$_ConfirmContainer.fromJson(Map<String, dynamic> json) => _$_$_ConfirmContainerFromJson(json);
+  factory _$_ConfirmContainer.fromJson(Map<String, dynamic> json) =>
+      _$_$_ConfirmContainerFromJson(json);
 
   @override
   @JsonKey(name: 'confirm_id')
-  final String confirmId;
+  final String? confirmId;
 
   @override
   String toString() {
@@ -116,12 +132,15 @@ class _$_ConfirmContainer implements _ConfirmContainer {
     return identical(this, other) ||
         (other is _ConfirmContainer &&
             (identical(other.confirmId, confirmId) ||
-                const DeepCollectionEquality().equals(other.confirmId, confirmId)));
+                const DeepCollectionEquality()
+                    .equals(other.confirmId, confirmId)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(confirmId);
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(confirmId);
 
+  @JsonKey(ignore: true)
   @override
   _$ConfirmContainerCopyWith<_ConfirmContainer> get copyWith =>
       __$ConfirmContainerCopyWithImpl<_ConfirmContainer>(this, _$identity);
@@ -133,13 +152,17 @@ class _$_ConfirmContainer implements _ConfirmContainer {
 }
 
 abstract class _ConfirmContainer implements ConfirmContainer {
-  const factory _ConfirmContainer({@JsonKey(name: 'confirm_id') String confirmId}) = _$_ConfirmContainer;
+  const factory _ConfirmContainer(
+      {@JsonKey(name: 'confirm_id') String? confirmId}) = _$_ConfirmContainer;
 
-  factory _ConfirmContainer.fromJson(Map<String, dynamic> json) = _$_ConfirmContainer.fromJson;
+  factory _ConfirmContainer.fromJson(Map<String, dynamic> json) =
+      _$_ConfirmContainer.fromJson;
 
   @override
   @JsonKey(name: 'confirm_id')
-  String get confirmId;
+  String? get confirmId => throw _privateConstructorUsedError;
   @override
-  _$ConfirmContainerCopyWith<_ConfirmContainer> get copyWith;
+  @JsonKey(ignore: true)
+  _$ConfirmContainerCopyWith<_ConfirmContainer> get copyWith =>
+      throw _privateConstructorUsedError;
 }

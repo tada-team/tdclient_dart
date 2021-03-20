@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart' hide Response;
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:tdclient_dart/src/utils/interceptors/token_manager.dart';
 import 'package:tdclient_dart/src/utils/api_keys.dart';
@@ -15,8 +14,8 @@ class TokenWidgetHttpClient extends WidgetHttpClient {
   ) : super(dio);
 
   factory TokenWidgetHttpClient({
-    @required String serverDomain,
-    String tokenString,
+    required String serverDomain,
+    String? tokenString,
   }) {
     final tokenManager = TokenManager();
 
@@ -31,7 +30,7 @@ class TokenWidgetHttpClient extends WidgetHttpClient {
     );
     dio_.interceptors.add(tokenManager);
 
-    if (!tokenString.isEmptyOrNull) {
+    if (tokenString != null) {
       dio_.options.headers.addAll({
         HeaderKeys.token: tokenString,
       });
@@ -40,7 +39,7 @@ class TokenWidgetHttpClient extends WidgetHttpClient {
     return TokenWidgetHttpClient._(dio_, tokenManager);
   }
 
-  String get currentToken => _tokenManager.token;
+  String? get currentToken => _tokenManager.token;
 
   @override
   Future<Response<void>> login() {

@@ -1,30 +1,28 @@
 import 'dart:convert';
 
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:web_socket_channel/io.dart';
 
 import 'package:tdclient_dart/src/websocket/widget/i_widget_websocket_client.dart';
 import 'package:tdclient_dart/src/websocket/websocket_dtos/websocket_dtos.dart';
 import 'package:tdclient_dart/src/websocket/websocket_event_names.dart';
 import 'package:tdclient_dart/src/core/core_dtos/core_dtos.dart';
-import 'package:tdclient_dart/src/utils/utils.dart';
 
 class WidgetWebSocketClient implements IWidgetWebSocketClient {
   final Uri uri;
-  final Iterable<String> protocols;
-  final Map<String, dynamic> headers;
-  final Duration pingInterval;
+  final Iterable<String>? protocols;
+  final Map<String, dynamic>? headers;
+  final Duration? pingInterval;
 
-  IOWebSocketChannel _channel;
-
-  @override
-  Stream<WebsocketEvent<Map<String, dynamic>>> rawStream;
+  late final IOWebSocketChannel _channel;
 
   @override
-  Stream<WebsocketEvent<MessageListContainer>> messagesStream;
+  late final Stream<WebSocketEvent<Map<String, dynamic>>> rawStream;
+
+  @override
+  late final Stream<WebSocketEvent<MessageListContainer>> messagesStream;
 
   WidgetWebSocketClient({
-    @required this.uri,
+    required this.uri,
     this.protocols,
     this.headers,
     this.pingInterval,
@@ -45,15 +43,18 @@ class WidgetWebSocketClient implements IWidgetWebSocketClient {
   @override
   Future close() => _channel.sink.close();
 
-  Stream<WebsocketEvent<Map<String, dynamic>>> _getRawStream(
+  Stream<WebSocketEvent<Map<String, dynamic>>> _getRawStream(
     Stream<dynamic> channelStream,
   ) async* {
     await for (final stringEvent in channelStream) {
       final jsonEvent = jsonDecode(stringEvent);
-      final serializedEvent = WebsocketEvent<Map<String, dynamic>>.fromJson(jsonEvent, (json) => json);
+      final serializedEvent = WebSocketEvent.fromJson(
+        jsonEvent,
+        (json) => json as Map<String, dynamic>,
+      );
 
-      if (!serializedEvent.confirmId.isEmptyOrNull) {
-        final confirmEvent = WebsocketEvent(
+      if (serializedEvent.confirmId != null) {
+        final confirmEvent = WebSocketEvent(
           event: WebSocketEventNames.clientConfirm,
           params: ConfirmContainer(
             confirmId: serializedEvent.confirmId,
@@ -69,14 +70,14 @@ class WidgetWebSocketClient implements IWidgetWebSocketClient {
     }
   }
 
-  Stream<WebsocketEvent<MessageListContainer>> _getMessagesStream(
-    Stream<WebsocketEvent<Map<String, dynamic>>> eventStream,
+  Stream<WebSocketEvent<MessageListContainer>> _getMessagesStream(
+    Stream<WebSocketEvent<Map<String, dynamic>>> eventStream,
   ) async* {
     await for (final event in eventStream) {
       if (event.event == WebSocketEventNames.serverMessageUpdated) {
-        yield WebsocketEvent(
+        yield WebSocketEvent(
           event: event.event,
-          params: MessageListContainer.fromJson(event.params),
+          params: MessageListContainer.fromJson(event.params!),
           confirmId: event.confirmId,
         );
       }

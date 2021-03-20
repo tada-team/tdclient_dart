@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart' hide Response;
-import 'package:meta/meta.dart';
+
 import 'package:tdclient_dart/src/core/core_dtos/core_dtos.dart';
 import 'package:tdclient_dart/src/http/dio_wrapper.dart';
 import 'package:tdclient_dart/src/http/http_dtos/http_dtos.dart';
@@ -11,7 +11,7 @@ class WidgetHttpClient implements IWidgetHttpClient {
 
   final DioWrapper dioWrapper;
 
-  WidgetHttpClient(this.dio) : dioWrapper = DioWrapper(dio: dio);
+  WidgetHttpClient(this.dio) : dioWrapper = DioWrapper(dio);
 
   @override
   Future<Response<void>> login() {
@@ -35,7 +35,7 @@ class WidgetHttpClient implements IWidgetHttpClient {
 
   @override
   Future<Response<MessageListContainer>> getMessages({
-    @required String teamUid,
+    required String teamUid,
   }) {
     return dioWrapper.get(
       uri: Uri(
@@ -47,8 +47,8 @@ class WidgetHttpClient implements IWidgetHttpClient {
 
   @override
   Future<Response<Message>> sendMessage({
-    @required teamUid,
-    @required OutgoingMessage message,
+    required teamUid,
+    required OutgoingMessage message,
   }) {
     return dioWrapper.post(
       uri: Uri(

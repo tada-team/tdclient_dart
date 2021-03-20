@@ -1,3 +1,3 @@
-extension StringExtensions on String {
-  bool get isEmptyOrNull => this == null || isEmpty;
+extension StringExtensions on String? {
+  bool get isEmptyOrNull => this == null || this!.isEmpty;
 }
