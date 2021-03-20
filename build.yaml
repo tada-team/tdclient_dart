@@ -1,0 +1,23 @@
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          # Options configure how source code is generated for every
+          # `@JsonSerializable`-annotated class in the package.
+
+          # If true, generated toJson methods will explicitly call toJson on nested objects.
+          explicit_to_json: true
+
+          # When true on classes with type parameters (generic types),
+          # extra "helper" parameters will be generated for fromJson and/or toJson
+          # to support serializing values of those types.
+          generic_argument_factories: true
+
+          # If true, generated fromJson functions include extra checks to validate proper deserialization of types.
+          # If an exception is thrown during deserialization, a CheckedFromJsonException is thrown.
+          checked: true
+
+          # When true, only fields annotated with JsonKey will have code generated.
+          # It will have the same effect as if those fields had been annotated with @JsonKey(ignore: true).
+          ignore_unannotated: true
